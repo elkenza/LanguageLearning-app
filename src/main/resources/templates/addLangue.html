@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout Langue</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div layout:fragment="content">
+<form th:action="@{/addLangue}" th:object="${langue}" method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control w-50" th:field="*{name}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Logo</label>
+        <input type="text" class="form-control w-50" th:field="*{logo}">
+    </div>
+
+    <div class="form-check">
+        <input class="form-check-input" type="radio" th:field="*{typeLangue}" value="is_native" >
+        <label class="form-check-label" >
+            is_native
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" th:field="*{typeLangue}" value="learning_language">
+        <label class="form-check-label" >
+            learning_language
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" th:field="*{typeLangue}" value="speaking_language" >
+        <label class="form-check-label">
+            speaking_language
+        </label>
+    </div>
+    <button type="submit" class="btn btn-primary form-control w-50" value="Ajouter">Ajouter</button>
+</form>
+</div>
+</body>
+</html>
